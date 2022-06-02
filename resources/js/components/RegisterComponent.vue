@@ -8,11 +8,14 @@
                   <div class="row justify-content-center">
                     <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                       <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Create New Account</p>
+                      <div class="errorMessage" v-if = "errors.length" style="color: red;">  
+                       </div>
                       <form class="mx-1 mx-md-4" @submit.prevent="submit" method="POST"  nonvalidate ="nonvalidate"> 
                         <div class="d-flex flex-row align-items-center mb-4">
                           <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
                             <input type="name" id="form3Example3c" name="name" class="form-control" v-model="name"/>
+                            <span style="color: red;">{{errors[0]}}</span>
                             <label class="form-label" for="form3Example3c">Enter Your Name</label>
                           </div>
                         </div>  
@@ -20,6 +23,7 @@
                           <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
                             <input type="email" id="form3Example3c" name="email" class="form-control" v-model="email"/>
+                            <span style="color: red;">{{errors[1]}}</span>
                             <label class="form-label" for="form3Example3c">Enter Email Address</label>
                           </div>
                         </div>
@@ -27,6 +31,7 @@
                           <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
                             <input type="password" name="password" id="form3Example4c" class="form-control" v-model="password"/>
+                            <span style="color: red;">{{errors[2]}}</span>
                             <label class="form-label" for="form3Example4c">Password</label>
                           </div>
                         </div>
@@ -34,6 +39,7 @@
                           <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
                             <input type="confirm_password" name="confirm_password" id="form3Example4c" class="form-control" v-model="confirm_password"/>
+                            <span style="color: red;">{{errors[3]}}</span>
                             <label class="form-label" for="form3Example4c">Confirm Password</label>
                           </div>
                         </div>
@@ -62,13 +68,15 @@ export default {
             name: '',
             email: '',
             password: '',
-            confirm_password: ''
+            confirm_password: '',
+            errors: [],
             }
         },
         methods: {
           submit(){
+            if(this.name && this.email && this.password && this.confirm_password){
                axios.post('/User/post-register', {
-                   name: this.name,
+                 name: this.name,
                  email: this.email,
                  password: this.password,
                  confirm_password: this.password
@@ -80,6 +88,13 @@ export default {
                     })
                     .catch(error => {
                     })
+            }
+            else{
+                if(!this.name) this.errors.push("Name is Required")
+                if(!this.email) this.errors.push("Email is Required")
+                if(!this.password) this.errors.push("Password is Required")
+                if(!this.confirm_password) this.errors.push("Confirm Passowrd is Required")
+            }
               }
    }
                 

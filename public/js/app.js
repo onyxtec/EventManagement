@@ -5317,13 +5317,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
-    //  $hall_id = theme[0].halls.hall_id
     return {
       hall_id: this.theme[0].halls.id,
       name: '',
@@ -5736,29 +5732,43 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       name: '',
       email: '',
       password: '',
-      confirm_password: ''
+      confirm_password: '',
+      errors: []
     };
   },
   methods: {
     submit: function submit() {
       var _this = this;
 
-      axios.post('/User/post-register', {
-        name: this.name,
-        email: this.email,
-        password: this.password,
-        confirm_password: this.password
-      }).then(function (response) {
-        _this.credentials = response.data.data;
-        console.log(_this.user);
-        window.location.href = '/User/login';
-      })["catch"](function (error) {});
+      if (this.name && this.email && this.password && this.confirm_password) {
+        axios.post('/User/post-register', {
+          name: this.name,
+          email: this.email,
+          password: this.password,
+          confirm_password: this.password
+        }).then(function (response) {
+          _this.credentials = response.data.data;
+          console.log(_this.user);
+          window.location.href = '/User/login';
+        })["catch"](function (error) {});
+      } else {
+        if (!this.name) this.errors.push("Name is Required");
+        if (!this.email) this.errors.push("Email is Required");
+        if (!this.password) this.errors.push("Password is Required");
+        if (!this.confirm_password) this.errors.push("Confirm Passowrd is Required");
+      }
     }
   }
 });
@@ -39906,9 +39916,14 @@ var render = function () {
                 ),
               ]),
               _vm._v(" "),
-              _c("br"),
-              _vm._v(" "),
-              _c("button", { attrs: { type: "submit" } }, [_vm._v("Reserve")]),
+              _c(
+                "button",
+                {
+                  staticClass: "col-lg-2 col-md-2 form-group mt-2 mt-md-3",
+                  attrs: { type: "submit" },
+                },
+                [_vm._v("Reserve")]
+              ),
             ]
           ),
         ]
@@ -40599,6 +40614,13 @@ var render = function () {
                             [_vm._v("Create New Account")]
                           ),
                           _vm._v(" "),
+                          _vm.errors.length
+                            ? _c("div", {
+                                staticClass: "errorMessage",
+                                staticStyle: { color: "red" },
+                              })
+                            : _vm._e(),
+                          _vm._v(" "),
                           _c(
                             "form",
                             {
@@ -40661,6 +40683,12 @@ var render = function () {
                                       }),
                                       _vm._v(" "),
                                       _c(
+                                        "span",
+                                        { staticStyle: { color: "red" } },
+                                        [_vm._v(_vm._s(_vm.errors[0]))]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
                                         "label",
                                         {
                                           staticClass: "form-label",
@@ -40719,6 +40747,12 @@ var render = function () {
                                       }),
                                       _vm._v(" "),
                                       _c(
+                                        "span",
+                                        { staticStyle: { color: "red" } },
+                                        [_vm._v(_vm._s(_vm.errors[1]))]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
                                         "label",
                                         {
                                           staticClass: "form-label",
@@ -40774,6 +40808,12 @@ var render = function () {
                                           },
                                         },
                                       }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        { staticStyle: { color: "red" } },
+                                        [_vm._v(_vm._s(_vm.errors[2]))]
+                                      ),
                                       _vm._v(" "),
                                       _c(
                                         "label",
@@ -40834,6 +40874,12 @@ var render = function () {
                                           },
                                         },
                                       }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        { staticStyle: { color: "red" } },
+                                        [_vm._v(_vm._s(_vm.errors[3]))]
+                                      ),
                                       _vm._v(" "),
                                       _c(
                                         "label",
