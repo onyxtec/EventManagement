@@ -545,6 +545,7 @@ class ComposerStaticInitfc3314073eb006b8df2b7f9d35cde1db
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\IndexController' => __DIR__ . '/../..' . '/app/Http/Controllers/IndexController.php',
+        'App\\Http\\Controllers\\TimeController' => __DIR__ . '/../..' . '/app/Http/Controllers/TimeController.php',
         'App\\Http\\Controllers\\UserAuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserAuthController.php',
         'App\\Http\\Controllers\\UserDashboard' => __DIR__ . '/../..' . '/app/Http/Controllers/UserDashboard.php',
         'App\\Http\\Controllers\\UserLoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserLoginController.php',

@@ -1,11 +1,7 @@
 <?php
-
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
-
 class booking extends Model
 {
     use HasFactory;
@@ -14,7 +10,6 @@ class booking extends Model
         'date',
         'timeSlots'
     ];
-
     public function user()
     {
         return $this->belongsTo('App\Models\User','user_id','id');
@@ -31,5 +26,4 @@ class booking extends Model
     {
         return $this->belongsTo('App\Models\Time','time_id','id');
     }
-
 }

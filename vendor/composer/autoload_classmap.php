@@ -19,6 +19,7 @@ return array(
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\IndexController' => $baseDir . '/app/Http/Controllers/IndexController.php',
+    'App\\Http\\Controllers\\TimeController' => $baseDir . '/app/Http/Controllers/TimeController.php',
     'App\\Http\\Controllers\\UserAuthController' => $baseDir . '/app/Http/Controllers/UserAuthController.php',
     'App\\Http\\Controllers\\UserDashboard' => $baseDir . '/app/Http/Controllers/UserDashboard.php',
     'App\\Http\\Controllers\\UserLoginController' => $baseDir . '/app/Http/Controllers/UserLoginController.php',
