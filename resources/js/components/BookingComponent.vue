@@ -43,8 +43,7 @@
                  </select>
             </div>
           </div>
-          <br>
-          <button type="submit">Reserve</button>
+          <button class="col-lg-2 col-md-2 form-group mt-2 mt-md-3" type="submit">Reserve</button>
         </form>
       </div>
     </section>
