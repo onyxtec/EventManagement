@@ -2,6 +2,13 @@
 @section('head-title', 'Add Theme')
 @section('content')
     <div class="container">
+        <div class="">
+            @if (\Session::has('msg'))
+            <div class="text-primary   ">
+               <h6><b>Success! </b>{!! \Session::get('msg') !!}</h6>
+            </div>
+            @endif
+         </div> 
         <form action="{{ route('themes.store') }}" method="POST">
             @csrf
                 <div class="col-lg-8">

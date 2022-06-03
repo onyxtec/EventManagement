@@ -5,8 +5,7 @@
           <h2>Reservation</h2>
           <p>Book Your Hall</p>
         </div>
-         <div class="errorMessage" v-if = "errors.length" style="color: red;"> 
-            
+         <div class="errorMessage" v-if = "errors.length" style="color: red;">    
           </div>
         <form class="" @submit.prevent="save" data-aos="fade-up" data-aos-delay="100">
           <div class="row">

@@ -67,8 +67,8 @@ class hallController extends Controller
         }
            $halls->save();
            Notification::send($admins, new HallAddedNotification($request->hall_name));
-            $msg = "New Hall Added! ";
-            return redirect('halls')->with('msg', $msg);
+            $msg = "Hall Added, Please Add your Hall Theme";
+            return redirect('themes/create')->with('msg', $msg);
 
     }
     public function show($id)
