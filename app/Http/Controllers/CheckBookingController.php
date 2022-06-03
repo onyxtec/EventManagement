@@ -25,9 +25,9 @@ class CheckBookingController extends Controller
             $id =  Auth::guard('owner')->id();
             $hallId = Hall::where('owner_id', $id)->pluck('id');
             if($hallId->count() > 0){
-                $themesData = Theme::where('hall_id', $hallId)->get('id');
+                $themesData = Theme::where('hall_id', $hallId)->get('id');  
             if($themesData->count()> 0){
-                $bookings = booking::where('theme_id', $themesData)->get();
+                $bookings = booking::where('hall_id', $hallId)->orWhere('theme_id',$themesData)->get();
                 return view('checkBooking.index',compact('bookings'));
             }
         }

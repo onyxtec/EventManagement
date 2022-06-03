@@ -17,7 +17,6 @@ class themesController extends Controller
      */
     public function index(Request $request)
     { 
-        
         $id =  Auth::guard('owner')->id();
         $hall_id = Hall::where('owner_id', $id)->pluck('id');
         $themes = Theme::whereIn('hall_id', $hall_id)->get();
