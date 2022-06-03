@@ -10,7 +10,12 @@
                <h4 class="page-title">Halls List</h4>
                @if(Auth::guard('owner')->check())
                @if(Auth::guard('owner')->user()->role('owner')	)
-                  <a class="btn btn-primary float-right mb-4" href="{{route('halls.create')}}" >Add Hall</a>   
+                  <a class="btn btn-primary float-right mb-4" href="{{route('halls.create')}}" >Add Hall</a>  
+                  <div class="">
+                     <div class="text-secondary  ">
+                        <h6><b>Check Available TimeSlots and then Add Your Hall</b></h6>
+                     </div>
+                  </div> 
                   @endif
                   @endif                                 
        </div>

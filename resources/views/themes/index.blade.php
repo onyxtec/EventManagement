@@ -30,7 +30,7 @@
                          <thead>
                                  <tr>
                                     <th>#</th>
-                                      {{-- <th>Hall Name</th> --}}
+                                      <th>Hall Name</th>
                                       <th>Theme Name</th>
                                       <th>Price</th>
                                       <th>Action</th>
@@ -40,7 +40,7 @@
                                 @foreach ($themes as $theme)
                                  <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    {{-- <td>{{ $theme->halls->hall_name }}</td> --}}
+                                    <td>{{ $theme->halls->hall_name }}</td>
                                     <td>{{ $theme->name }}</td>
                                     <td>{{ $theme->price }}</td>
                                     <td class="d-flex">

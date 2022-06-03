@@ -19,9 +19,8 @@ class themesController extends Controller
     { 
         
         $id =  Auth::guard('owner')->id();
-        $hall_id = Hall::where('owner_id', $id)->first()->id;
-        $themes = Theme::where('hall_id', $hall_id)->get();
-        
+        $hall_id = Hall::where('owner_id', $id)->pluck('id');
+        $themes = Theme::whereIn('hall_id', $hall_id)->get();
         return view('themes.index', compact('themes'));
     }
 

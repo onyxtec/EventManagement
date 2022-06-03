@@ -3,7 +3,16 @@
 	<section id="sidebar">
 		<a href="#" class="brand">
 			<i class='bx bxs-smile'></i>
-			<span class="text">AdminHub</span>
+			@if(Auth::guard('admin')->check())
+			@if(Auth::guard('admin')->user()->role('admin')	)
+			<span class="text">Admin Panel</span>
+			@endif
+			@endif
+			@if(Auth::guard('owner')->check())
+			@if(Auth::guard('owner')->user()->role('owner')	)
+			<span class="text">Hall Owner Panel</span>
+			@endif
+			@endif
 		</a>
 		<ul class="side-menu top">
 			<li class="{{Route::is('dashboard') ? 'active' : ''}}">
