@@ -79,7 +79,7 @@ import $ from 'jquery';
            getSlots: function () {
             var check_date = this.date;
             var hall_id = this.hall_id;
-            var dates = ["2022-06-03", "2022-06-04", "2022-06-04"];
+            // var dates = ["2022-06-03", "2022-06-04", "2022-06-04"];
                   // pass value to controller through Ajax
                     $.ajax({
                               url: '/booking/available/' +check_date +'/' +hall_id,
